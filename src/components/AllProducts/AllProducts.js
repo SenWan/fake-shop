@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import './AllProducts.css'
 
-const AllProducts = () => {
+const AllProducts = (props) => {
+    const {setCartCount} = props;
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -14,7 +15,7 @@ const AllProducts = () => {
         <div className='container'>
             <div className="row mt-5 g-4">
             {products.map((product) => (
-            <SingleProduct key={product.id} product={product}></SingleProduct>
+            <SingleProduct setCartCount={setCartCount} key={product.id} product={product}></SingleProduct>
         ))}
             </div>
         </div>
